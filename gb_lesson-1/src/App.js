@@ -1,4 +1,5 @@
 import Message from "./component/Message";
+import './app.scss'
 
 function App() {
   let name = 'Asel';
