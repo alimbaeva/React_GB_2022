@@ -4,7 +4,7 @@ import Forma from "./component/Forma";
 import './app.scss'
 
 function App() {
-  let name = 'Asel';
+  let name = 'Myne';
 
   const arr = () => {
     return [
