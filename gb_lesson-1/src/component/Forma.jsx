@@ -1,4 +1,10 @@
 import React, { useState, useEffect, useRef } from 'react';
+// import { ThemeProvider } from '@mui/styles';
+// import Button from '@mui/material/Button';
+
+
+
+
 
 function Forma() {
 
@@ -55,6 +61,9 @@ function Forma() {
             <form onSubmit={handleSubmit}>
                 <input type="text" placeholder='Ввведите ваше Имя' name="auther" ref={inputElement} />
                 <textarea autoFocus={true} id="" placeholder='Введите ваше сообщение' name="text" ></textarea>
+                {/* <Button variant="contained" disableElevation>
+                    Submit
+                </Button> */}
                 <button type='submit'>submit</button>
             </form>
             <div className="message-list">
