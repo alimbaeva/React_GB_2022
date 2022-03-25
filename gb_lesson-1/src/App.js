@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+// import { useEffect } from "react";
 import Message from "./component/Message";
 import Forma from "./component/Forma";
 import './app.scss'

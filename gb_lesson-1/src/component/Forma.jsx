@@ -1,6 +1,16 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useRef } from 'react';
 
 function Forma() {
+
+
+    const inputElement = useRef(null);
+
+    useEffect(() => {
+        if (inputElement.current) {
+            inputElement.current.focus();
+        }
+    }, [handleSubmit]);
+
     const [mass, setMass] = useState([]);
 
     function handleSubmit(e) {
@@ -14,6 +24,10 @@ function Forma() {
             auther: auther,
             text: text,
         }]);
+        setTimeout(() => {
+            target.auther.value = ''
+            target.text.value = ''
+        }, 1000)
     }
 
     function givLastID(arr) {
@@ -39,8 +53,8 @@ function Forma() {
     return (
         <>
             <form onSubmit={handleSubmit}>
-                <input type="text" placeholder='Ввведите ваше Имя' name="auther" />
-                <textarea id="" placeholder='Введите ваше сообщение' name="text"></textarea>
+                <input type="text" placeholder='Ввведите ваше Имя' name="auther" ref={inputElement} />
+                <textarea autoFocus={true} id="" placeholder='Введите ваше сообщение' name="text" ></textarea>
                 <button type='submit'>submit</button>
             </form>
             <div className="message-list">
