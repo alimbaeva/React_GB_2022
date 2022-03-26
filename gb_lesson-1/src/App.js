@@ -1,6 +1,7 @@
 
 import Message from "./component/Message";
 import Forma from "./component/Forma";
+import UiForm from "./component/UiForm";
 import './app.scss'
 
 function App() {
@@ -16,6 +17,7 @@ function App() {
     <div className="App">
       <Message text={name} arr={arr} />
       <Forma />
+      <UiForm />
     </div>
   );
 }
