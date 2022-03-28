@@ -1,0 +1,25 @@
+header {
+  width: 100%;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(31, 31, 73);
+}
+
+header a{
+  text-decoration: none;
+  font-size: 22px;
+  font-weight: 900;
+  color: aliceblue;
+  margin: 20px;
+}
+
+.active {
+  color: brown;
+  cursor: default;
+}
+
+body a{
+  color: rgb(73, 13, 13);
+}
