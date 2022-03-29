@@ -57,12 +57,12 @@ const Chats = () => {
                 <textarea autoFocus={true} id="" placeholder='Введите ваше сообщение' name="text" ></textarea>
                 <button type='submit'><Link to={`/chats/${mass.id}`}>submit</Link></button>
             </form>
-            <div className="message-list">
+            {/* <div className="message-list">
                 {mass.map(message => <div className="message-list__item" key={message.id}>
                     {message.author && <p className="message-list__p"><span>Автор:</span> {message.author}</p>}
                     <p className="message-list__p">{message.author && <span>Текст:</span>} {message.text}</p>
                 </div>)}
-            </div>
+            </div> */}
         </>
     )
 }
