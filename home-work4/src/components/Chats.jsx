@@ -2,69 +2,52 @@ import React, { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 
 const Chats = () => {
-
-    const inputElement = useRef(null);
+    const [chats, setChats] = useState([]);
 
     useEffect(() => {
-        if (inputElement.current) {
-            inputElement.current.focus();
-        }
-    }, [handleSubmit]);
+        fetch('https://jsonplaceholder.typicode.com/posts')
+            .then(res => res.json())
+            .then(data => setChats(data))
+    }, [])
 
-    const [mass, setMass] = useState([]);
+    const deleteChat = (id) => {
+        const removeItem = chats.filter((item) => item.id !== id)
+        setChats(removeItem)
+    }
 
-    function handleSubmit(e) {
+    const addItem = (value) => {
+        let copyChat = [...chats];
+        copyChat = [...chats, { id: chats.length + 1, title: value }];
+        setChats(copyChat);
+    }
+
+    const [value, setValue] = useState('')
+
+    const handleSubmit = (e) => {
         e.preventDefault();
-        const target = e.target;
-        const auther = target.auther.value;
-        const text = target.text.value;
-
-        setMass((prev) => [...prev, {
-            id: givLastID(prev),
-            auther: auther,
-            text: text,
-        }]);
-        setTimeout(() => {
-            target.auther.value = ''
-            target.text.value = ''
-        }, 1000)
-    }
-
-    function givLastID(arr) {
-        return arr.length ? arr[arr.length - 1].id + 1 : 0;
-    }
-
-    useEffect(() => {
-        setTimeout(() => {
-            robot(mass);
-        }, 1500);
-    }, [mass]);
-
-    function robot() {
-        const lastAuther = mass[mass.length - 1];
-        if (lastAuther && lastAuther.auther) {
-            setMass(prev => [...prev, {
-                id: givLastID(prev),
-                text: `Сообщение ${lastAuther.auther} отправленно`
-            }]);
-        }
+        addItem(value)
     }
 
     return (
-        <>
+        <div>
             <form onSubmit={handleSubmit}>
-                <input type="text" placeholder='Ввведите ваше Имя' name="auther" ref={inputElement} />
-                <textarea autoFocus={true} id="" placeholder='Введите ваше сообщение' name="text" ></textarea>
-                <button type='submit'><Link to={`/chats/${mass.id}`}>submit</Link></button>
+                <input value={value} onChange={(e) => setValue(e.target.value)} name="auther" />
+                <button> add </button>
             </form>
-            {/* <div className="message-list">
-                {mass.map(message => <div className="message-list__item" key={message.id}>
-                    {message.author && <p className="message-list__p"><span>Автор:</span> {message.author}</p>}
-                    <p className="message-list__p">{message.author && <span>Текст:</span>} {message.text}</p>
-                </div>)}
-            </div> */}
-        </>
-    )
+            {chats.map((item) => {
+                return (
+                    <>
+                        <h2 style={{ margin: '15px' }} key={item.id}>
+                            <Link to={`/posts/${item.id}`}>
+                                {item.title}
+                            </Link>
+                        </h2>
+                        <button onClick={() => deleteChat(item.id)}> X </button>
+                    </>
+                )
+            })}
+        </div>
+    );
 }
 
 export default Chats
