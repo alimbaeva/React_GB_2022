@@ -1,8 +1,9 @@
-import React, { useEffect, useRef, useState, useReducer, useCallback } from "react";
+import React, { useEffect, useRef, useReducer, useCallback, useContext } from "react";
 import Header from "./components/Header";
 import PostList from "./components/PostList";
 // import Post from "./components/Post";
 import Footer from "./components/Footer";
+import ThemeContext from "./context";
 
 function init(state) {
   return { ...state }
@@ -44,7 +45,8 @@ function reducer(state, action) {
 function App() {
   const ref = useRef(null)
   const [data, dispatch] = useReducer(reducer, { posts: [], check: false, type: 'posts' }, init)
-  const [theme, setTheme] = useState('light')
+  // const [theme, setTheme] = useState('light')
+  const { theme, setTheme } = useContext(ThemeContext)
 
   useEffect(() => {
     setTimeout(() => {
@@ -72,15 +74,15 @@ function App() {
   const setType = useCallback((type) => {
     console.log('Memoized');
     dispatch({ type })
-  }, [data.type])
+  }, [])
 
   return (
     <div className={`app ${theme}`}>
+      <Header changeType={setType} check={data.check} changeTheme={change} />
       <div className="form">
         <input ref={ref} />
         <button onClick={handleFocus}>focus</button>
       </div>
-      <Header changeType={setType} check={data.check} changeTheme={change} />
       <PostList posts={data.posts} />
       <Footer />
     </div>

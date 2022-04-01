@@ -1,9 +1,9 @@
 import React from 'react'
 
-const Checkbox = ({ checkbox, changeTheme }) => {
+const Checkbox = ({ checked, changeTheme }) => {
     return (
         <div className='checkbox'>
-            <label className={`custom-checkbox ${checkbox ? "checked" : ''}`} onClick={changeTheme}>
+            <label className={`custom-checkbox ${checked ? "checked" : ''}`} onClick={changeTheme}>
                 <span className='custom-checkbox-button' ></span>
             </label>
         </div>
