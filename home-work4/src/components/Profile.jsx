@@ -1,8 +1,25 @@
-import React from 'react'
+import React from 'react';
+import { useSelector } from 'react-redux';
+
 
 const Profile = () => {
+    const contacts = useSelector((state) => {
+        return state.contacts
+    })
+
+    const isActive = useSelector(state => {
+        return state.isActive
+    })
     return (
-        <div>Profile</div>
+        <div>
+            {contacts.map((contact, id) => (
+                <li key={contact.name + id}>
+                    {contact.name}
+                </li>
+            ))}
+            <input type="checkbox" defaultChecked={isActive ? 'green' : 'red'} />
+
+        </div>
     )
 }
 
