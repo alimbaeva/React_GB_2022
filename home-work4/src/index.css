@@ -1,11 +1,11 @@
 *,
 *::after,
-*::before{
+*::before {
   margin: 0;
   box-sizing: border-box;
 }
 
-header{
+header {
   height: 60px;
   width: 100%;
   margin-bottom: 50px;
@@ -15,14 +15,14 @@ header{
   background-color: aliceblue;
 }
 
-header a{
+header a {
   text-decoration: none;
   font-size: 22px;
   font-weight: 900;
   margin: 13px;
 }
 
-footer{
+footer {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -35,23 +35,25 @@ footer{
 
 /* ========= */
 
-h1{
+h1 {
   background-color: black;
   color: aliceblue;
   text-align: center;
 }
 
-form{
+form {
   display: flex;
   flex-direction: column;
-
-  button{
-      height: 30px;
-      background-color: bisque;
-      cursor: pointer;
-  }
 }
-input{
+
+button {
+  height: 30px;
+  background-color: bisque;
+  cursor: pointer;
+}
+
+
+input {
   margin-bottom: 20px;
   height: 40px;
   background-color: white;
@@ -59,8 +61,15 @@ input{
   cursor: pointer;
 }
 
-textarea{
+textarea {
   margin-bottom: 40px;
   background-color: white;
   height: 200px;
+}
+
+
+/* ============ */
+
+.green {
+  background-color: rgb(4, 130, 88);
 }
