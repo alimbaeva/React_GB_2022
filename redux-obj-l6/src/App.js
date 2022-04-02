@@ -1,24 +1,39 @@
-import logo from './logo.svg';
-import './App.css';
+import { useDispatch, useSelector } from "react-redux";
 
 function App() {
+  const products = useSelector(state => {
+    return state.products
+  })
+
+  const dispatch = useDispatch();
+
+  const deleteProduct = (id) => {
+    dispatch({ type: "deleteProduct", payload: id })
+  }
+
+  const addProduct = (name) => {
+    const obj = {
+      name,
+      id: Date.now()
+    }
+    dispatch({ type: 'addProduct', payload: obj })
+  }
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div >
+      <h1>Продукты</h1>
+
+      {products.map((product) => {
+        return <> <li key={product.id}>
+          {product.name}
+        </li>
+          <button onClick={() => deleteProduct(product.id)}>delete</button>
+          {/* <button onClick={() => dispatch({ type: 'deleteProduct', payload: product.id })}>delete</button> */}
+        </>
+      })}
+
+      <button onClick={() => addProduct(prompt())}>Добавить продукт</button>
     </div>
+
   );
 }
 
