@@ -1,23 +1,29 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { useDispatch, useSelector } from "react-redux";
 
 function App() {
+  const count = useSelector(state => {
+    return state
+  });
+
+  const dispatch = useDispatch();
+
+  const increate = () => {
+    dispatch({ type: 'plus' })
+  }
+  const descreate = () => {
+    dispatch({ type: 'minus' })
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="count">
+      <div className="num">
+        {count}
+      </div>
+      <button onClick={() => increate()}>Увеличить счетчик</button>
+      <button onClick={() => descreate()}>Уменьшить счетчик</button>
+      {/* <button onClick={() => dispatch({ type: 'plus' })}>Увеличить счетчик</button>
+      <button onClick={() => dispatch({ type: 'minus' })}>Уменьшить счетчик</button> */}
     </div>
   );
 }
