@@ -1,0 +1,1 @@
+export const CountSelector = state => state.count.counter
