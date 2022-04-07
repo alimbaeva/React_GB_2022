@@ -1,0 +1,34 @@
+body {
+    background-color: black;
+}
+
+.App {
+    width: 500px;
+    margin: 100px auto;
+    color: bisque;
+}
+
+li {
+    list-style: none;
+    font-size: 24px;
+    margin: 10px;
+
+}
+
+.App button {
+    font-weight: 900;
+    border: 2px solid white;
+    border-radius: 15px;
+    cursor: pointer;
+}
+
+.btnM {
+    width: 100px;
+    margin-top: 30px;
+
+}
+
+li .btn {
+    width: 50px;
+    margin-left: 25px;
+}
