@@ -16,11 +16,11 @@ function App() {
         chats.map((chat) => (
           <li>
             {chat.name}
-            <button onClick={() => dispatch({ type: 'delete', payload: chat.id })}>X</button>
+            <button className="btn" onClick={() => dispatch({ type: 'delete', payload: chat.id })}>X</button>
           </li>
         ))
       }
-      <button onClick={() => add(prompt())}> ADD</button>
+      <button className="btnM" onClick={() => add(prompt())}> ADD</button>
     </div>
   );
 }
