@@ -1,0 +1,31 @@
+body {
+  background-color: rgb(106, 29, 29);
+  color: antiquewhite;
+}
+
+.App {
+  width: 500px;
+  margin: 200px auto;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: 4px solid rgb(70, 3, 3);
+  border-radius: 20px;
+}
+
+.App div {
+  font-size: 70px;
+}
+
+button {
+  height: 50px;
+  width: 70%;
+  margin: 10px 0;
+  border: 4px solid rgb(70, 3, 3);
+  border-radius: 20px;
+  background-color: antiquewhite;
+  font-size: 24px;
+  font-weight: 900;
+}
