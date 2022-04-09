@@ -1,0 +1,16 @@
+body {
+  background-color: rgb(40, 2, 75);
+  color: bisque;
+}
+
+.App {
+  width: 800px;
+  margin: 100px auto;
+  text-align: center;
+  font-size: 80px;
+  font-weight: 900;
+}
+
+h1 {
+  font-size: 34px;
+}
