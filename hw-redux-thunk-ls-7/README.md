@@ -8,6 +8,19 @@
 ** Дополнительные материалы
 
 Функции-генераторы         https://learn.javascript.ru/generators
+
+
+
+
 Доклад о паттерне “сага”    https://www.youtube.com/watch?v=xDuwrtwYHu8
+
+
+
+
 Статья о redux-thunk и redux-saga      https://habr.com/ru/post/351168/
+
+
+
+
+
 Статья о презентационных компонентах и контейнерах      https://medium.com/@learnreact/container-components-c0e67432e005
